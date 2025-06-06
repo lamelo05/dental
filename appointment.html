@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Processing</title>
+    <link rel="stylesheet" a href="appointment.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Loading Screen -->
+        <div id="loadingScreen">
+            <div class="tooth">
+                <div class="bubbles">
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                </div>
+            </div>
+            <div class="loading-text">Processing Your Appointment...</div>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+        </div>
+        
+        <!-- Success Message -->
+        <div class="success-content" id="successScreen">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+            <div class="success-text">Appointment Confirmed!</div>
+            <div class="success-message">Your appointment has been successfully submitted. We look forward to seeing you!</div>
+            <button class="continue-btn" id="continueBtn">Continue to Site</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const successScreen = document.getElementById('successScreen');
+            const progressBar = document.getElementById('progressBar');
+            const continueBtn = document.getElementById('continueBtn');
+            
+            // Simulate processing
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Show success message after loading completes
+                    loadingScreen.style.display = 'none';
+                    successScreen.style.display = 'block';
+                } else {
+                    width += 2;
+                    progressBar.style.width = width + '%';
+                }
+            }, 50);
+            
+            // Continue to main page
+            continueBtn.addEventListener('click', function() {
+                // Replace this with your actual redirect
+                window.location.href = "dental_updated.html";
+            });
+        });
+    </script>
+</body>
+</html>
