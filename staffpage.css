@@ -1,0 +1,257 @@
+/* General body styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url("tooth.webp");
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    background-size: cover;
+}
+
+.logo {
+    font-size: 2rem;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+    margin: 1.25rem;
+}
+
+.topic-header{
+    text-align:center;
+    text-transform: capitalize;
+    font-size: 3.35rem;
+    color:white;
+    text-size-adjust: 123px;
+}
+/* Dashboard container */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffffcc;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle tooth.webp watermark background in dashboard */
+.dashboard::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    background: url('tooth.webp') no-repeat center center;
+    background-size: contain;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Dashboard header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header title with tooth icon */
+.dashboard-header h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Tooth icon styling */
+.dashboard-header h1 i.fas.fa-tooth {
+    color: #4a90e2;
+    font-size: 2.5rem;
+}
+
+/* Staff info container */
+.staff-info {
+    font-weight: 400;
+    color: #555;
+    text-align: right;
+    font-size: 1rem;
+}
+
+/* Staff name styling */
+.staff-name {
+    display: block;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color:#27ae60;
+}
+
+/* Current time styling */
+.current-time {
+    font-style: italic;
+    color: #888;
+}
+
+/* Appointments container */
+.appointments-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+/* Each appointments section */
+.appointments-section {
+    background: #f9fbfd;
+    flex: 1 1 45%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.15);
+    padding: 20px;
+    min-width: 300px;
+}
+
+/* Section headings */
+.appointments-section h2 {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Section icons */
+.appointments-section h2 i {
+    color: #4a90e2;
+    font-size: 1.5rem;
+}
+
+/* Appointments list container */
+.appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Appointment card */
+.appointment-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 15px 20px;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effect on appointment card */
+.appointment-card:hover {
+    box-shadow: 0 6px 18px rgba(74, 144, 226, 0.3);
+}
+
+/* Appointment header: patient name and time */
+.appointment-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Appointment details */
+.appointment-details p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Appointment actions container */
+.appointment-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Buttons base style */
+.appointment-actions button {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Complete button style */
+.complete-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.complete-btn:hover {
+    background-color: #219150;
+}
+
+/* Cancel button style */
+.cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .appointments-container {
+        flex-direction: column;
+    }
+
+    .appointments-section {
+        flex: 1 1 100%;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .staff-info {
+        text-align: left;
+    }
+}
+
+footer{
+    text-transform: capitalize;
+    color:(rgb(172, 22, 177, 0.637));
+    text-align:center;
+    margin-top: 50px;
+    font:bold;
+}
+
+.form-coat{
+    border:1px solid yellow;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius:20px;
+    text-align:center;
+}

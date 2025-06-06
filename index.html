@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentaCare</title>
+    <link rel='stylesheet' href="dental.css">
+    <script src="https://kit.fontawesome.com/d13a51f291.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body>
+    <section class="home" id="home">
+        <div class="logo" data-aos="zoom-in" data-aos-duration="2000">DentaCare</div>
+
+        <nav>
+            <ul  data-aos="zoom-in" data-aos-duration="2000">
+                <li><a href="#home">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#services">services</a></li>
+                <li><a href="staff.html">staff</a></li>
+            </ul>
+        </nav>
+
+        <div class="search cssanimation leFadeIn sequence" id="search">
+            <input type="text" placeholder="type to search" class="search-box">
+        </div>
+
+        <div class="container" data-aos="zoom-in" data-aos-duration="1500">
+            <h1 class="leMovingBack">your smile <br><span>our </span> <br>happiness</h1>
+            <p>At DentaCare, we believe a healthy smile is a happy smile. <br>Our team of caring professionals provides
+                gentle, modern dental care for patients of all ages.<br>
+                From routine checkups to advanced treatments, we're here to keep your smile bright and healthy
+                <button class="join"> an appointment with us</button>
+            </p>
+
+            <div class="form" id="form" data-aos="fade-up" data-aos-duration="1500">
+                <header>appointments</header>
+                <form id="appointmentForm" action="/api/appointments" method="POST">
+                    <input type="text" name="name" placeholder="enter name here" id="name" class="input" required>
+                    <input type="email" name="email" placeholder="enter email here" id="email" class="input" required>
+                    <select name="serviceType" id="serviceType" class="input" required>
+                        <option value="" disabled selected>---choose service type---</option>
+                        <option value="teeth cleaning">Teeth Cleaning</option>
+                        <option value="Brace&alignments">Braces & Aligners</option>
+                        <option value="teeth whitening">Teeth Whitening</option>
+                        <option value="cosmetic filling">Cosmetic Filling</option>
+                    </select>
+                    <input type="text" name="address" placeholder="enter address here" id="address" class="input"
+                        required>
+                    <button id="loginButton" type="submit">book now</button>
+                </form>
+
+                <div class="login-with">
+                    <h2 class="log">visit us at</h2>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-google"></i>
+                    <i class="fa-brands fa-skype"></i>
+                </div>
+            </div>
+    </section>
+
+
+    <section class="about" id="about" data-aos="fade-up" data-aos-duration="1200">
+        <header class='ab-head'>about us</header>
+        <div id="imagelogo">
+            <img src="images.jpeg" alt="" class="dent-logo">
+        </div>
+
+ 
+
+
+
+
+
+<script>
+  function carousel() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.nav-prev');
+    const nextBtn = document.querySelector('.nav-next');
+    const slidesContainer = document.querySelector('.slides');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+      slides.forEach((slide, index) => {
+        slide.setAttribute('aria-hidden', index !== currentIndex);
+      });
+      dots.forEach((dot, index) => {
+        if(index === currentIndex) {
+          dot.classList.add('active');
+          dot.setAttribute('aria-selected', 'true');
+          dot.setAttribute('tabindex', '0');
+        } else {
+          dot.classList.remove('active');
+          dot.setAttribute('aria-selected', 'false');
+          dot.setAttribute('tabindex', '-1');
+        }
+      });
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+      dot.addEventListener('keydown', (e) => {
+        // Allow navigation via arrow keys on dots
+        if(e.key === 'ArrowLeft') {
+          e.preventDefault();
+          showPrev();
+          dots[(index - 1 + totalSlides) % totalSlides].focus();
+        }
+        if(e.key === 'ArrowRight') {
+          e.preventDefault();
+          showNext();
+          dots[(index + 1) % totalSlides].focus();
+        }
+      });
+    });
+
+    // Auto slide every 5 seconds
+    let autoSlideInterval = setInterval(showNext, 5000);
+
+    // Pause auto slide on hover or focus
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    carousel.addEventListener('mouseleave', () => {
+      autoSlideInterval = setInterval(showNext, 5000);
+    });
+    carousel.addEventListener('focusin', () => clearInterval(autoSlideInterval));
+    carousel.addEventListener('focusout', () => {
+      autoSlideInterval = setInterval(showNext, 5000);
+    });
+
+    // Initialize
+    updateCarousel();
+  };
+</script>
+
+
+
+        <div class="ab-txt" data-aos="fade-up" data-aos-duration="2000">
+            <p id="ab-txt">Welcome to DentaCare, where your smile is our top priority. <br>
+                We’re a passionate team of dental professionals committed to making every visit comfortable,
+                stress-free, and effective. <br>
+                With a focus on modern techniques and personalized care, we offer a full range of services—from routine
+                checkups and cleanings to cosmetic and restorative treatments.
+
+                Whether you're coming in for your child's first visit or looking to enhance your own smile, we're here
+                to help you feel confident and cared for every step of the way. Because at DentaCare, we believe
+                everyone deserves a healthy, beautiful smile.</p>
+        </div>
+    </section>
+
+      
+        
+     
+    </div>
+  
+
+  
+<section class="review" id="review-sec" data-aos="fade-up" data-aos-duration="2000">
+    <header class="review-header" id="head-id">
+        feedbacks
+    </header>
+    
+    <div class="carousel-container">
+        <div class="carousel" aria-label="Customer feedback carousel for dental services">
+            <div class="slides" role="list">
+                <div class="slide" aria-hidden="false" role="listitem" id="slide1">
+                    <img class="customer-photo" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Photo of customer Emma Johnson" />
+                    <div class="customer-name">Emma Johnson</div>
+                    <div class="feedback-text">I'm so pleased with the professional and caring service. My teeth have never looked better!</div>
+                    <div class="stars" aria-label="Rating: 5 out of 5 stars" role="img">
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                </div>
+                <div class="slide" aria-hidden="true" role="listitem" id="slide2">
+                    <img class="customer-photo" src="https://randomuser.me/api/portraits/men/36.jpg" alt="Photo of customer Michael Smith" />
+                    <div class="customer-name">Michael Smith</div>
+                    <div class="feedback-text">Excellent care and friendly staff. The implants procedure was painless and results are great.</div>
+                    <div class="stars" aria-label="Rating: 4 out of 5 stars" role="img">
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ccc" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                </div>
+                <div class="slide" aria-hidden="true" role="listitem" id="slide3">
+                    <img class="customer-photo" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Photo of customer Olivia Lee" />
+                    <div class="customer-name">Olivia Lee</div>
+                    <div class="feedback-text">I was nervous at first, but the orthodontic treatment team made it easy and comfortable throughout.</div>
+                    <div class="stars" aria-label="Rating: 5 out of 5 stars" role="img">
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                </div>
+                <div class="slide" aria-hidden="true" role="listitem" id="slide4">
+                    <img class="customer-photo" src="https://randomuser.me/api/portraits/men/25.jpg" alt="Photo of customer David Wilson" />
+                    <div class="customer-name">David Wilson</div>
+                    <div class="feedback-text">Highly recommend! The staff is friendly, and the implants process was seamless with great follow-up care.</div>
+                    <div class="stars" aria-label="Rating: 4 out of 5 stars" role="img">
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ccc" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> 
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-arrow nav-prev" aria-label="Previous testimonial" tabindex="0">&#10094;</button>
+            <button class="nav-arrow nav-next" aria-label="Next testimonial" tabindex="0">&#10095;</button>
+
+            <div class="dots" role="tablist" aria-label="Testimonial navigation">
+                <button class="dot active" role="tab" aria-selected="true" aria-controls="slide1" tabindex="0"></button>
+                <button class="dot" role="tab" aria-selected="false" aria-controls="slide2" tabindex="-1"></button>
+                <button class="dot" role="tab" aria-selected="false" aria-controls="slide3" tabindex="-1"></button>
+                <button class="dot" role="tab" aria-selected="false" aria-controls="slide4" tabindex="-1"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+  
+
+   <section class="service-container" id="services">
+    
+    <p class="service-head">services</p>
+     <a href="dental_updated.html" > <div class="ad-frame">
+        <img src="dental2.jpeg" alt="Tooth Cleaning">
+        <div class="ad-content">
+          <h3>Teeth Cleaning</h3>
+          <p>Professional cleanings for a brighter smile.</p>
+        </div>
+      </div></a>
+  
+      <a href="dental_updated.html"><div class="ad-frame">
+        <img src="brace.jpeg" alt="Braces">
+        <div class="ad-content">
+          <h3>Braces & Aligners</h3>
+          <p>Straighten your teeth with modern solutions.</p>
+        </div>
+      </div></a>
+  
+      <a href="dental_updated.html"><div class="ad-frame">
+        <img src="whiteTeeth.jpeg" alt="Whitening">
+        <div class="ad-content">
+          <h3>Teeth Whitening</h3>
+          <p>Bring out your smile's natural glow.</p>
+        </div>
+      </div></a>
+
+      <a href="dental_updated.html"><div class="ad-frame">
+        <img src="cosmetic filing.jpeg" alt="Whitening">
+        <div class="ad-content">
+          <h3>Cosmetic Filling</h3>
+          <p>Bring out your smile's natural glow.</p>
+        </div></a>
+      </div>
+    </div>
+  </section>
+
+
+
+    <footer class="footer">
+        <div class="join_footer">
+            <header class="join-txt">join us</header>
+            <p>amegahray@icloud.com</p>
+        </div>
+
+        <div class="services_footer">
+            <header class="services_txt">services</header>
+            <ul class="footer_list">
+                <li>teeth cleaning</li>
+                <li>Brace&alignments</li>
+                <li>teeth whitening</li>
+            </ul>
+        </div>
+
+        <div class="professional_footer">
+            <header class="professional_txt">professional</header>
+            <ul>
+                <li>dr moses</li>
+                <li>dr watson okyere</li>
+                <li>dr clarence</li>
+            </ul>
+        </div>
+
+        <p>&copy; 2024.Dentacare All Rights Reserved.</p>
+    </footer>
+
+    <script src="form.js"></script>
+         <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({
+        duration: 1200,
+        once: true
+      });
+    });
+  </script>
+    
+</body>
+
+</html>

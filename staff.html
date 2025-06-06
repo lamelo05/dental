@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>staff_loginpage</title>
+    <link rel="stylesheet" href="staff.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+    <header class="logo">staff</header>
+    <section class="container" data-aos="fade-right" data-aos-duration=2000>
+
+        <head>You are welcome staff key in your deatails and lets continue</head>
+
+        <form name="staffValidation" id="staffForm">
+        <input type="text" placeholder="Type your name here" id="name" name="staffName" required>
+        <div id="nameError" class="error"></div>
+        
+        <input type="password" placeholder="Password" id="code" name="staffcode" required>
+        <div id="codeError" class="error"></div>
+        
+        <button type="submit" id="submit">Log in</button>
+        
+        <div id="successMessage" class="success"></div>
+    </form>
+    </section>
+
+
+      <script>
+        document.getElementById('staffForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const code = document.getElementById('code').value.trim();
+            const submitBtn = document.getElementById('submit');
+            
+            // Clear previous messages
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('codeError').textContent = '';
+            document.getElementById('successMessage').textContent = '';
+            
+            // Validate name (must be exactly "Raymond Amegah")
+            if (name !== 'Raymond Amegah') {
+                document.getElementById('nameError').textContent = 'Invalid name. Please enter "valid staff name"';
+                return;
+            }
+            
+            // Validate password (must be exactly "lamelo@233")
+            if (code !== 'lamelo@233') {
+                document.getElementById('codeError').textContent = 'Invalid password. Please enter "Correct password"';
+                return;
+            }
+            
+            // If validation passes
+            document.getElementById('successMessage').textContent = 'Login successful! Redirecting...';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Please wait...';
+            submitBtn.style.backgroundColor = '#2ecc71';
+            
+            // Redirect to another page after 2 seconds
+            setTimeout(function() {
+                window.location.href = 'staffpage.html'; 
+            }, 2000);
+        });
+
+        // Original validateForm function (kept for compatibility with onclick)
+        function validateForm() {
+            document.getElementById('staffForm').dispatchEvent(new Event('submit'));
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+    <footer>&COPY;DentaCare 2025</footer>
+
+    <script>
+    AOS.init();
+</script>
+
+</body>
+
+
+
+</html>
