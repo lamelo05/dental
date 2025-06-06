@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
+const cors = require('cors')
 
 // Middleware
 app.use(bodyParser.json());
@@ -57,6 +58,14 @@ app.post('/api/appointments', (req, res) => {
   const query = `?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&serviceType=${encodeURIComponent(serviceType)}&address=${encodeURIComponent(address)}`;
   res.redirect('/appointment.html' + query);
 });
+
+const allowedOrigins=[
+  'https://lamelo05.github.io']
+
+app.use(cors({
+  origin:allowedOrgins,
+  methods:['post']
+}))
 
 // API endpoint to get all appointments
 app.get('/api/appointments', (req, res) => {
